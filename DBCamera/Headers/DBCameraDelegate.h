@@ -64,7 +64,7 @@
 /**
  *  Tells the delegate when the Library picker must be opened
  */
-- (void) openLibrary;
+- (void) openLibrary:view;
 
 /**
  *  Check if the camera has the Focus
