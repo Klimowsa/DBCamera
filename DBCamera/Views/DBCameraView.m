@@ -309,7 +309,7 @@
 
 #pragma mark - Actions
 
-- (void) libraryAction:(UIButton *)button
+- (void) libraryAction:(NSArray *)button
 {
     if ( [_delegate respondsToSelector:@selector(openLibrary:)] )
         [_delegate openLibrary:button[1]];
