@@ -311,8 +311,8 @@
 
 - (void) libraryAction:(UIButton *)button
 {
-    if ( [_delegate respondsToSelector:@selector(openLibrary)] )
-        [_delegate openLibrary];
+    if ( [_delegate respondsToSelector:@selector(openLibrary:)] )
+        [_delegate openLibrary:button[1]];
 }
 
 - (void) addGridToCameraAction:(UIButton *)button

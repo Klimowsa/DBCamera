@@ -128,6 +128,10 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    self.view.alpha = 1.0f;
+    self.view.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
+    
     if ( !self.customCamera )
         [self checkForLibraryImage];
 }
@@ -350,7 +354,7 @@
         [camera drawExposeBoxAtPointOfInterest:screenCenter andRemove:NO];
 }
 
-- (void) openLibrary
+- (void) openLibrary:view
 {
     if ( [ALAssetsLibrary authorizationStatus] !=  ALAuthorizationStatusDenied ) {
         [UIView animateWithDuration:.3 animations:^{
@@ -365,7 +369,8 @@
             [library setUseCameraSegue:self.useCameraSegue];
             [library setCameraSegueConfigureBlock:self.cameraSegueConfigureBlock];
             [library setLibraryMaxImageSize:self.libraryMaxImageSize];
-            [self.containerDelegate switchFromController:self toController:library];
+            //[self.containerDelegate switchFromController:self toController:library];
+            [view presentViewController:library animated:YES completion:nil];
         }];
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{

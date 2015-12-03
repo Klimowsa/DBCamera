@@ -241,7 +241,8 @@
         [self.view setAlpha:0];
         [self.view setTransform:CGAffineTransformMakeScale(.8, .8)];
     } completion:^(BOOL finished) {
-        [self.containerDelegate backFromController:self];
+        //[self.containerDelegate backFromController:self];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }
 
@@ -375,6 +376,7 @@
             }
             
             [weakSelf.loading removeFromSuperview];
+            [self dismissViewControllerAnimated:YES completion:nil];
         } failureBlock:nil];
     });
 }
